@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cashback Optimization — Comparing Brute Force and Greedy algorithms to maximize credit card cashback rewards.">
+    <title>Cashback Optimizer — Algorithm Demo</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <i class="fas fa-coins logo-icon"></i>
+                <span class="logo-text">Cashback Optimizer</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#demo">Demo</a></li>
+                <li><a href="#algorithms">Algorithms</a></li>
+                <li><a href="#team">Team</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-icon">
+                <i class="fas fa-credit-card"></i>
+            </div>
+            <h1 class="hero-name">Maximize Cashback Rewards</h1>
+            <p class="hero-tagline">Comparing Brute Force and Greedy algorithms to find the optimal credit card assignment for maximum cashback</p>
+            <div class="hero-badges">
+                <span class="tag">Java</span>
+                <span class="tag">Brute Force</span>
+                <span class="tag">Greedy</span>
+                <span class="tag">Optimization</span>
+            </div>
+            <a href="#demo" class="btn btn-primary">Try the Demo</a>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">About the Project</h2>
+            <div class="about-content" data-aos="fade-up" data-aos-delay="100">
+                <p>
+                    Given multiple credit cards — each with different cashback rates per spending category and a spending limit — how do you assign your purchases to maximize total cashback?
+                </p>
+                <p>
+                    This project solves that problem using two approaches: an exhaustive <strong>Brute Force</strong> search that guarantees the optimal solution, and a <strong>Greedy</strong> heuristic that runs faster but may not always find the best answer. The interactive demo below lets you experiment with both algorithms in real time.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section section-alt" id="how-it-works">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">How It Works</h2>
+            <div class="steps-grid">
+                <div class="step-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="step-number">1</div>
+                    <h3>Define Your Cards</h3>
+                    <p>Set how many credit cards you have and the maximum you can spend on each one.</p>
+                </div>
+                <div class="step-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="step-number">2</div>
+                    <h3>Set Categories</h3>
+                    <p>Enter what you spend in each category (e.g. groceries, gas) and each card's cashback percentage for that category.</p>
+                </div>
+                <div class="step-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="step-number">3</div>
+                    <h3>Run Algorithms</h3>
+                    <p>Click "Run Algorithms" and both methods will figure out which card to use for each category to get you the most cashback.</p>
+                </div>
+                <div class="step-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="step-number">4</div>
+                    <h3>Compare Results</h3>
+                    <p>See the results side by side and check whether both methods agree or one found a better answer.</p>
+                </div>
+            </div>
+
+            <!-- Possible Outcomes Guide -->
+            <h3 class="subsection-title" data-aos="fade-up">What to Expect — Possible Outcomes</h3>
+            <div class="outcomes-grid">
+                <div class="outcome-card outcome-success" data-aos="fade-up" data-aos-delay="100">
+                    <div class="outcome-icon"><i class="fas fa-check-circle"></i></div>
+                    <h4>Both algorithms agree</h4>
+                    <p>Both Brute Force and Greedy found the same total cashback. This means the Greedy shortcut happened to find the best possible answer.</p>
+                    <div class="outcome-example">
+                        <span class="outcome-example-label">Example</span>
+                        You have 2 cards with generous limits and 3 categories. Each category clearly has one card with a much better rate. Both methods pick the same cards and return the same cashback total (e.g. $116.00).
+                    </div>
+                </div>
+                <div class="outcome-card outcome-diff" data-aos="fade-up" data-aos-delay="200">
+                    <div class="outcome-icon"><i class="fas fa-not-equal"></i></div>
+                    <h4>One algorithm found a better solution</h4>
+                    <p>Brute Force found a higher cashback than Greedy (or vice versa in rare edge cases). This shows that taking the "obvious best" choice at each step does not always lead to the best overall result.</p>
+                    <div class="outcome-example">
+                        <span class="outcome-example-label">Example</span>
+                        Card A has the best rate for both groceries ($500) and gas ($300), but its limit is $600. Greedy assigns groceries to Card A first (biggest spend), using up the limit so gas goes to a worse card. Brute Force discovers that assigning gas to Card A and groceries elsewhere actually earns more cashback overall.
+                    </div>
+                </div>
+                <div class="outcome-card outcome-error" data-aos="fade-up" data-aos-delay="300">
+                    <div class="outcome-icon"><i class="fas fa-times-circle"></i></div>
+                    <h4>No valid assignment found</h4>
+                    <p>The total spending across all categories exceeds what the cards can handle. No combination of card assignments can stay within every card's limit.</p>
+                    <div class="outcome-example">
+                        <span class="outcome-example-label">Example</span>
+                        You have 2 cards with limits of $500 each ($1,000 total), but your categories add up to $1,200. There is simply not enough room on the cards, so both algorithms report failure.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEMO -->
+    <section class="section" id="demo">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Interactive Demo</h2>
+
+            <!-- Input Controls -->
+            <div class="demo-controls" data-aos="fade-up" data-aos-delay="100">
+                <div class="control-row">
+                    <div class="control-group">
+                        <label>Number of Cards</label>
+                        <input type="number" id="numCards" value="4" min="1" max="6">
+                    </div>
+                    <div class="control-group">
+                        <label>Number of Categories</label>
+                        <input type="number" id="numCategories" value="6" min="1" max="10">
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn btn-primary" id="btnGenerate">Generate Table</button>
+                        <span class="btn-desc">Rebuilds the input tables below to match the number of cards and categories you set.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Tables -->
+            <div class="demo-tables" data-aos="fade-up" data-aos-delay="200">
+                <div class="table-section">
+                    <h3>Spending per Category ($)</h3>
+                    <div class="table-wrapper" id="spendingTable"></div>
+                </div>
+
+                <div class="table-section">
+                    <h3>Card Spending Limits ($)</h3>
+                    <div class="table-wrapper" id="limitsTable"></div>
+                </div>
+
+                <div class="table-section">
+                    <h3>Cashback Rates (%) — rows: cards, columns: categories</h3>
+                    <div class="table-wrapper" id="ratesTable"></div>
+                </div>
+
+                <div class="demo-actions">
+                    <div class="btn-group">
+                        <button class="btn btn-primary" id="btnRun"><i class="fas fa-play"></i> Run Algorithms</button>
+                        <span class="btn-desc">Runs both Brute Force and Greedy on your current inputs and shows results side by side.</span>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn btn-outline" id="btnLoadExample"><i class="fas fa-database"></i> Load Example</button>
+                        <span class="btn-desc">Fills the tables with a pre-built example so you can see how the demo works.</span>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn btn-outline" id="btnRandom"><i class="fas fa-random"></i> Randomize</button>
+                        <span class="btn-desc">Generates random spending amounts, limits, and cashback rates to experiment with.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results -->
+            <div class="results-container" id="resultsContainer" style="display:none;" data-aos="fade-up">
+                <div class="results-grid">
+                    <!-- Brute Force Result -->
+                    <div class="result-card" id="bruteForceResult">
+                        <div class="result-header">
+                            <h3><i class="fas fa-search"></i> Brute Force</h3>
+                            <span class="complexity-badge">O(n<sup>m</sup>)</span>
+                        </div>
+                        <div class="result-body" id="bruteForceBody"></div>
+                    </div>
+
+                    <!-- Greedy Result -->
+                    <div class="result-card" id="greedyResult">
+                        <div class="result-header">
+                            <h3><i class="fas fa-bolt"></i> Greedy</h3>
+                            <span class="complexity-badge">O(n &times; m)</span>
+                        </div>
+                        <div class="result-body" id="greedyBody"></div>
+                    </div>
+                </div>
+
+                <!-- Comparison -->
+                <div class="comparison-bar" id="comparisonBar"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ALGORITHMS -->
+    <section class="section section-alt" id="algorithms">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Algorithm Breakdown</h2>
+            <div class="algo-grid">
+                <div class="algo-card" data-aos="fade-up" data-aos-delay="100">
+                    <h3><i class="fas fa-search"></i> Brute Force</h3>
+                    <p class="algo-complexity">Time Complexity: O(n<sup>m</sup>)</p>
+                    <ul>
+                        <li>Generates all possible assignments of categories to cards</li>
+                        <li>For each assignment, checks if card limits are respected</li>
+                        <li>Calculates cashback for every valid assignment</li>
+                        <li>Returns the assignment with maximum cashback</li>
+                        <li>Guarantees the optimal solution</li>
+                        <li>Becomes impractical for large inputs (e.g. 5 cards, 15 categories = 30 billion assignments)</li>
+                    </ul>
+                </div>
+                <div class="algo-card" data-aos="fade-up" data-aos-delay="200">
+                    <h3><i class="fas fa-bolt"></i> Greedy</h3>
+                    <p class="algo-complexity">Time Complexity: O(n &times; m)</p>
+                    <ul>
+                        <li>Sorts categories by spending amount (largest first)</li>
+                        <li>For each category, picks the card with the highest cashback rate</li>
+                        <li>Only considers cards that still have room under their limit</li>
+                        <li>Runs in polynomial time, scales to any input size</li>
+                        <li>Does not guarantee the optimal solution</li>
+                        <li>May differ from brute force when card limits force suboptimal local choices</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="section" id="team">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Team</h2>
+            <div class="team-grid" data-aos="fade-up" data-aos-delay="100">
+                <div class="team-card">
+                    <h3>Khalid Al Dosari</h3>
+                </div>
+                <div class="team-card">
+                    <h3>Zeyad Nazir</h3>
+                </div>
+                <div class="team-card">
+                    <h3>Abdulellah Altowaijri</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-social">
+                <a href="https://github.com/khaliddosari" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/khalid-al-dosari/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <p class="footer-copy">&copy; 2026 Khalid Al Dosari. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
