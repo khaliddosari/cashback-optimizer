@@ -145,6 +145,7 @@ ul {
     padding: 0 24px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     position: relative;
 }
 
@@ -886,7 +887,7 @@ ul {
         right: -100%;
         left: auto;
         transform: none;
-        width: 280px;
+        width: 200px;
         height: 100vh;
         background: rgba(10, 10, 15, 0.98);
         backdrop-filter: blur(20px);
