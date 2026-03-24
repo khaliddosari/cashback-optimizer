@@ -9,7 +9,11 @@ window.addEventListener('load', () => {
     if (navEntry && navEntry.type === 'reload') {
         const scrollPos = sessionStorage.getItem('scrollPos');
         if (scrollPos) {
-            window.scrollTo(0, parseInt(scrollPos));
+            const y = parseInt(scrollPos);
+            // Delay restore so mobile browsers finish layout first
+            requestAnimationFrame(() => {
+                setTimeout(() => window.scrollTo(0, y), 0);
+            });
             sessionStorage.removeItem('scrollPos');
         }
     } else {
@@ -17,8 +21,14 @@ window.addEventListener('load', () => {
     }
 });
 
-window.addEventListener('beforeunload', () => {
+// Save scroll position — use pagehide + visibilitychange for mobile reliability
+function saveScrollPos() {
     sessionStorage.setItem('scrollPos', window.scrollY);
+}
+window.addEventListener('beforeunload', saveScrollPos);
+window.addEventListener('pagehide', saveScrollPos);
+document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') saveScrollPos();
 });
 
 AOS.init({
