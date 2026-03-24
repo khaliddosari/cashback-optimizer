@@ -146,6 +146,30 @@ function generateTables() {
     html += '</table>';
     document.getElementById('ratesTable').innerHTML = html;
 
+    // Fill cells with placeholder numbers
+    const placeholderAmounts = [500, 300, 150, 400, 250, 600, 350, 200, 450, 100];
+    const placeholderLimits = [1500, 2000, 1000, 2500, 1800, 1200];
+    const placeholderRates = [
+        [5.0, 2.0, 3.0, 1.5, 4.0, 2.5, 3.5, 1.0, 2.0, 3.0],
+        [2.0, 4.0, 1.5, 3.0, 2.5, 5.0, 1.0, 3.5, 4.0, 2.0],
+        [3.0, 1.5, 5.0, 2.0, 1.0, 3.0, 4.0, 2.5, 1.5, 4.5],
+        [1.5, 3.0, 2.0, 4.5, 3.5, 1.0, 2.0, 5.0, 3.0, 1.5],
+        [4.0, 2.5, 1.0, 3.5, 5.0, 2.0, 1.5, 3.0, 2.5, 3.5],
+        [2.5, 5.0, 4.0, 1.0, 2.0, 3.5, 3.0, 1.5, 5.0, 2.0]
+    ];
+
+    for (let i = 0; i < numCats; i++) {
+        applyPlaceholderBehavior(document.getElementById(`amt_${i}`), placeholderAmounts[i % placeholderAmounts.length]);
+    }
+    for (let i = 0; i < numCards; i++) {
+        applyPlaceholderBehavior(document.getElementById(`lim_${i}`), placeholderLimits[i % placeholderLimits.length]);
+    }
+    for (let i = 0; i < numCards; i++) {
+        for (let j = 0; j < numCats; j++) {
+            applyPlaceholderBehavior(document.getElementById(`rate_${i}_${j}`), placeholderRates[i % placeholderRates.length][j % placeholderRates[0].length]);
+        }
+    }
+
     document.getElementById('resultsContainer').style.display = 'none';
 }
 
