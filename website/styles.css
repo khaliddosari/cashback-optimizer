@@ -141,12 +141,11 @@ ul {
 }
 
 .nav-container {
-    max-width: 1100px;
-    margin: 0 auto;
+    width: 100%;
     padding: 0 24px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    position: relative;
 }
 
 .nav-logo {
@@ -172,6 +171,9 @@ ul {
     display: flex;
     gap: 32px;
     align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .nav-links a {
@@ -468,6 +470,7 @@ ul {
 .control-group {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 6px;
 }
 
@@ -486,6 +489,7 @@ ul {
     font-family: var(--font);
     font-size: 0.95rem;
     width: 140px;
+    text-align: center;
     transition: border-color var(--transition);
 }
 
@@ -544,7 +548,7 @@ ul {
     color: var(--text-primary);
     font-family: var(--font);
     font-size: 1rem;
-    width: 80px;
+    width: 100px;
     text-align: center;
     transition: border-color var(--transition);
     -webkit-appearance: none;
@@ -582,6 +586,17 @@ ul {
     color: var(--text-secondary);
     text-align: center;
     line-height: 1.5;
+}
+
+.control-row .btn-group {
+    flex-direction: row;
+    align-items: center;
+    max-width: none;
+    gap: 16px;
+}
+
+.control-row .btn-group .btn-desc {
+    text-align: left;
 }
 
 /* Placeholder-style inputs */
@@ -646,10 +661,13 @@ ul {
 
 .result-body {
     padding: 24px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .result-body table {
     width: 100%;
+    min-width: 400px;
     border-collapse: collapse;
     margin-bottom: 16px;
 }
@@ -866,6 +884,8 @@ ul {
         position: fixed;
         top: 0;
         right: -100%;
+        left: auto;
+        transform: none;
         width: 280px;
         height: 100vh;
         background: rgba(10, 10, 15, 0.98);
@@ -929,6 +949,15 @@ ul {
 
     .btn-group {
         max-width: 100%;
+    }
+
+    .control-row .btn-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .control-row .btn-group .btn-desc {
+        text-align: center;
     }
 }
 
