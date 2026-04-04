@@ -60,6 +60,8 @@ Follow the console prompts to enter:
 
 Both Brute Force and Greedy results will be printed automatically.
 
+Live at: [khaliddosari.github.io/3ajib](https://cashback-optimizer.khalidaldosari.workers.dev/)
+
 ---
 
 ## Team
