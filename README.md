@@ -16,8 +16,8 @@ An algorithms course project that finds the optimal assignment of spending categ
 
 ## Features
 
-- **Brute Force Algorithm**: Tries every possible category-to-card assignment to guarantee the optimal solution. Skips automatically if the search space exceeds 10 million.
-- **Greedy Algorithm**: Assigns categories largest-spend-first to the card with the best rate, running in polynomial time.
+- **`Brute Force Algorithm`**: Tries every possible category-to-card assignment to guarantee the optimal solution. Skips automatically if the search space exceeds 10 million.
+- **`Greedy Algorithm`**: Assigns categories largest-spend-first to the card with the best rate, running in polynomial time.
 - **Interactive Web Demo**: Enter your own cards, categories, and rates in the browser and run both algorithms side-by-side in real time.
 - **Side-by-side comparison**: Formatted results tables for both algorithms with a comparison summary highlighting differences.
 
