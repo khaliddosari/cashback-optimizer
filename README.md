@@ -11,8 +11,7 @@ An algorithms course project that finds the optimal assignment of spending categ
 - **Language:** `Java`, `JavaScript`
 - **Frontend:** `HTML`, `CSS`, `JavaScript`
 - **Build (Java):** Single-file compilation (`javac`)
-- **Libraries:** AOS (scroll animations), Font Awesome (icons), Google Fonts (Inter)
-
+- **Libraries:** AOS (scroll animations)
 ---
 
 ## Features
