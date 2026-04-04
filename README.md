@@ -34,11 +34,11 @@ An algorithms course project that finds the optimal assignment of spending categ
 
 ## Running the Project
 
-### Web Demo
+- ### Web Demo
 
 Open `docs/index.html` in a browser; no build step required.
 
-### Java Console App
+- ### Java Console App
 
 ```bash
 # Compile
