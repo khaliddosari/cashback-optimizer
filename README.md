@@ -16,23 +16,19 @@ An algorithms course project that finds the optimal assignment of spending categ
 
 ## Features
 
-- **Brute Force Algorithm** — Enumerates all possible category-to-card assignments (base-N combinatorics) and selects the one that maximizes cashback while respecting per-card spending limits. Skips automatically if the search space exceeds 10,000,000 assignments.
-- **Greedy Algorithm** — Sorts categories by spending amount (descending) and assigns each to the card offering the best cashback rate without exceeding its limit.
-- **Interactive Web Demo** — A browser-based interface where users can input their own cards, categories, spending amounts, limits, and cashback rates, then run both algorithms and compare results in real time.
-- **Side-by-side comparison** — Both algorithms run on the same input and display formatted results tables showing category, amount, rate, assigned card, and cashback.
-- **Input helpers** — Load a pre-built example, randomize inputs, or enter custom values.
-- **Outcome explanations** — The demo explains three possible outcomes: both algorithms agree, one finds a better solution, or no valid assignment exists.
+- **Brute Force Algorithm**: Tries every possible category-to-card assignment to guarantee the optimal solution. Skips automatically if the search space exceeds 10 million.
+- **Greedy Algorithm**: Assigns categories largest-spend-first to the card with the best rate, running in polynomial time.
+- **Interactive Web Demo**: Enter your own cards, categories, and rates in the browser and run both algorithms side-by-side in real time.
+- **Side-by-side comparison**: Formatted results tables for both algorithms with a comparison summary highlighting differences.
 
 ---
 
 ## Process
 
 1. Defined the problem: given N cards, M spending categories, per-card limits, and a rates matrix, maximize total cashback.
-2. Modeled Brute Force by converting assignment indices to base-N representations, enumerating all valid permutations.
-3. Modeled Greedy by sorting categories by spend (high to low) and greedily picking the best available card per category.
-4. Added a hard cap to Brute Force to prevent memory/time blowout on large inputs.
-5. Re-implemented both algorithms in JavaScript and built an interactive web demo with editable input tables and side-by-side results.
-6. Submitted as a group project (3 members) for the Algorithms course.
+2. Implemented Brute Force by enumerating all base-N assignments and Greedy by sorting categories by spend and picking the best available card.
+3. Added a hard cap to Brute Force to prevent blowout on large inputs.
+4. Re-implemented both algorithms in JavaScript and built an interactive web demo with editable inputs and side-by-side results.
 
 ---
 
@@ -40,7 +36,7 @@ An algorithms course project that finds the optimal assignment of spending categ
 
 ### Web Demo
 
-Open `docs/index.html` in a browser — no build step required.
+Open `docs/index.html` in a browser; no build step required.
 
 ### Java Console App
 
