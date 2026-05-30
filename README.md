@@ -38,12 +38,12 @@ An algorithms course project that finds the optimal assignment of spending categ
 
 - ### Web Demo
 
-Open `static/index.html` in a browser; no build step required.
+Open `docs/index.html` in a browser; no build step required.
 
 Or serve it locally:
 
 ```bash
-python -m http.server 8000 --directory static
+python -m http.server 8000 --directory docs
 # then visit http://localhost:8000
 ```
 
