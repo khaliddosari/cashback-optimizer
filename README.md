@@ -11,7 +11,9 @@ An algorithms course project that finds the optimal assignment of spending categ
 - **Language:** `Java`, `JavaScript`
 - **Frontend:** `HTML`, `CSS`, `JavaScript`
 - **Build (Java):** Single-file compilation (`javac`)
-- **Libraries:** AOS (scroll animations)
+- **Design:** Liquid Glass design system — dark, frosted-glass surfaces over an ambient cyan/blue glow (`skills/Liquid Glass-Portfolio Design System/`)
+- **Type:** Inter (body), IBM Plex Sans (headings/UI), JetBrains Mono (tags/code)
+- **Libraries:** Font Awesome (icons), AOS (scroll animations)
 ---
 
 ## Features
@@ -36,7 +38,14 @@ An algorithms course project that finds the optimal assignment of spending categ
 
 - ### Web Demo
 
-Open `docs/index.html` in a browser; no build step required.
+Open `static/index.html` in a browser; no build step required.
+
+Or serve it locally:
+
+```bash
+python -m http.server 8000 --directory static
+# then visit http://localhost:8000
+```
 
 - ### Java Console App
 
